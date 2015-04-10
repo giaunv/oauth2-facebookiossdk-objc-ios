@@ -25,6 +25,8 @@
     
     self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     
+    self.loginButton.delegate = self;
+    
     if ([FBSDKAccessToken currentAccessToken]){
         // User is logged in
     }
@@ -33,6 +35,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+    // Handling the login results
 }
 
 @end
