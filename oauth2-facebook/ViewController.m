@@ -22,6 +22,10 @@
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     [loginButton setCenter:self.view.center];
     [self.view addSubview:loginButton];
+    
+    if ([FBSDKAccessToken currentAccessToken]){
+        // User is logged in
+    }
 }
 
 - (void)didReceiveMemoryWarning {
