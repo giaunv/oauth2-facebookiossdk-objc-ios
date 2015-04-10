@@ -19,9 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    [loginButton setCenter:self.view.center];
-    [self.view addSubview:loginButton];
+    self.loginButton = [[FBSDKLoginButton alloc] init];
+    [self.loginButton setCenter:self.view.center];
+    [self.view addSubview:self.loginButton];
+    
+    self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     
     if ([FBSDKAccessToken currentAccessToken]){
         // User is logged in
